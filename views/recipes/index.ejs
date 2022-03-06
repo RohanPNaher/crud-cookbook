@@ -1,0 +1,13 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <h1>All Recipes</h1>
+  <ul>
+    <% recipes.forEach(recipe => { %>
+      <li><%= recipe.name %> by <%= profile.name %></li>
+    <% }) %>
+  </ul>
+</main>
+
+<%- include('../partials/footer') %>
