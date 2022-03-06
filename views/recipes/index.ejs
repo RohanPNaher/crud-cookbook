@@ -3,11 +3,25 @@
 
 <main>
   <h1>All Recipes</h1>
+
+  <% recipes.forEach(recipe => { %>
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="<%= recipe.imageUrl %>" alt="<%= recipe.name %> Image">
+      <div class="card-body">
+        <h5 class="card-title"><%= recipe.name %></h5>
+        <p class="card-text">by <%= recipe.author %></p>
+        <a href="#" class="btn btn-primary">View Recipe</a>
+      </div>
+    </div>
+  <% }) %>
+
+<!-- 
+
   <ul>
     <% recipes.forEach(recipe => { %>
-      <li><%= recipe.name %> by <%= profile.name %></li>
+      <li><a href=""><%= recipe.name %></a> by <%= recipe.author %></li>
     <% }) %>
-  </ul>
+  </ul> -->
 </main>
 
 <%- include('../partials/footer') %>

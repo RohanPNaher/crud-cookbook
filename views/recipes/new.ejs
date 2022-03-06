@@ -1,0 +1,26 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <h1><%= title %></h1>
+  <form action="/recipes" method="POST">
+    <label>Recipe Name:
+      <input type="text" name="name" autocomplete="off" placeholder="ex. Apple Pie">
+    </label><br>
+    <label>Image URL:
+      <input type="text" name="imageUrl" autocomplete="off" placeholder="https://i.imgur.com/qWDVGow.jpeg">
+    </label><br>
+    <label>Description:
+      <textarea name="description" autocomplete="off" placeholder="My nan's apple pie recipe"></textarea>
+    </label><br>
+    <label>Ingredients:
+      <textarea name="ingredients" autocomplete="off" placeholder="6 Apples, 2 Sticks of Butter, 200 grams of Sugar"></textarea>
+    </label><br>
+    <label>Steps:
+      <textarea name="instructions" autocomplete="off" placeholder="1. Cut apples into spears."></textarea>
+    </label><br>
+    <button type="submit">Add Recipe</button>
+  </form>
+</main>
+
+<%- include('../partials/footer') %>
