@@ -10,7 +10,7 @@
       <div class="card-body">
         <h5 class="card-title"><%= recipe.name %></h5>
         <p class="card-text">by <%= recipe.author %></p>
-        <a href="#" class="btn btn-primary">View Recipe</a>
+        <a href="/recipes/<%= recipe._id %>" class="btn btn-primary">View Recipe</a>
       </div>
     </div>
   <% }) %>

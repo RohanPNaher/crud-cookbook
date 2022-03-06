@@ -22,6 +22,8 @@ function newRecipe(req, res) {
 
 function create(req, res) {
   req.body.author = req.user.profile_id
+  req.body.ingredients = req.body.ingredients.split(', ')
+  req.body.instructions = req.body.instructions.split('\r\n')
   Recipe.create({...req.body, author: req.user.profile._id})
     .then(recipe => {
       
@@ -34,8 +36,24 @@ function create(req, res) {
     })
 }
 
+function show(req, res) {
+  Recipe.findById(req.params.id)
+    .populate('author')
+    .then(recipe => {
+      res.render('recipes/show', {
+        recipe,
+        title: recipe.name
+      })
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/recipes')
+    })
+}
+
 export {
   index,
   newRecipe as new,
   create,
+  show,
 }

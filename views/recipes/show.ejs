@@ -1,0 +1,27 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <h1><%= recipe.name %></h1>
+  <h2>By <%= recipe.author.name %></h2>
+  <img src="<%= recipe.imageUrl %>" alt="<%= recipe.name %> image">
+  <h2><%= recipe.description %></h2>
+  <div>
+    <h3>Ingredients: </h3>
+    <ul>
+      <% recipe.ingredients.forEach(ingredient => { %>
+        <li><%= ingredient %></li>
+      <% }) %>
+    </ul>
+  </div>
+  <div>
+    <h3>Steps: </h3>
+    <ul>
+      <% recipe.instructions.forEach(instruction => { %>
+        <li><%= instruction %></li>
+      <% }) %>
+    </ul>
+  </div>
+</main>
+
+<%- include('../partials/footer') %>
