@@ -21,10 +21,10 @@ function newRecipe(req, res) {
 }
 
 function create(req, res) {
-  req.body.author = req.user.profile_id
+  req.body.author = req.user.profile._id
   req.body.ingredients = req.body.ingredients.split(', ')
   req.body.instructions = req.body.instructions.split('\r\n')
-  Recipe.create({...req.body, author: req.user.profile._id})
+  Recipe.create(req.body)
     .then(recipe => {
       
     console.log(req.body)
@@ -52,8 +52,6 @@ function show(req, res) {
 }
 
 function edit(req, res) {
-
-  // req.body.author = req.user.profile_id
   Recipe.findById(req.params.id)
     .then(recipe => {
       res.render('recipes/edit', {
@@ -67,10 +65,50 @@ function edit(req, res) {
     })
 }
 
+function update(req, res) {
+  Recipe.findById(req.params.id)
+    .then(recipe => {
+      req.body.ingredients = req.body.ingredients.split(', ')
+      req.body.instructions = req.body.instructions.split('\r\n')
+      if (recipe.author.equals(req.user.profile._id)) {
+        recipe.updateOne(req.body, {new: true})
+        .then(() => {
+          res.redirect(`/recipes/${recipe._id}`)
+        })
+      } else {
+        throw new Error ('Not Authorized')
+      }
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/recipes')
+    })
+}
+
+function deleteRecipe(req, res) {
+  Recipe.findById(req.params.id)
+  .then(recipe => {
+    if (recipe.author.equals(req.user.profile._id)) {
+      recipe.delete()
+      .then(() => {
+        res.redirect(`/recipes/`)
+      })
+    } else {
+      throw new Error ('Not Authorized')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/recipes')
+  })
+}
+
 export {
   index,
   newRecipe as new,
   create,
   show,
   edit,
+  update,
+  deleteRecipe as delete,
 }

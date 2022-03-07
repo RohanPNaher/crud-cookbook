@@ -27,6 +27,11 @@
       <button type="submit">Edit this recipe</button>
     </form>
   <% } %>
+  <% if (recipe.author.equals(user?.profile._id)) { %>
+    <form action="/recipes/<%= recipe.id %>?_method=DELETE" method="POST">
+      <button type="submit">Delete this recipe</button>
+    </form>
+  <% } %>
 </main>
 
 <%- include('../partials/footer') %>

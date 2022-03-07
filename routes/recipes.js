@@ -15,6 +15,12 @@ router.get('/:id/edit', isLoggedIn, recipeCtrl.edit)
 // POST - localhost:3000/recipes
 router.post('/', isLoggedIn, recipeCtrl.create)
 
+// PUT - localhost:3000/recipes/:id
+router.put('/:id', isLoggedIn, recipeCtrl.update)
+
+// DELETE - localhost:3000/recipes/:id
+router.delete('/:id', isLoggedIn, recipeCtrl.delete)
+
 export {
   router
 }
