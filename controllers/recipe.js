@@ -39,8 +39,17 @@ function create(req, res) {
 
 function show(req, res) {
   Recipe.findById(req.params.id)
-    .populate('author')
+    .populate([
+      'author', 
+      {
+        path: 'comments', 
+        populate: {  
+          path: 'author',
+        }
+      }
+    ])
     .then(recipe => {
+      console.log(recipe)
       res.render('recipes/show', {
         recipe,
         title: recipe.name
@@ -105,23 +114,29 @@ function deleteRecipe(req, res) {
 }
 
 function createComment(req, res) {
-  console.log('howdy')
-  // Recipe.findById(req.params.id)
-  //   .then(recipe => {
-  //     req.body.comments.push(req.body)
-  //     if (recipe.author.equals(req.user.profile._id)) {
-  //       recipe.updateOne(req.body, {new: true})
-  //       .then(() => {
-  //         res.redirect(`/recipes/${recipe._id}`)
-  //       })
-  //     } else {
-  //       throw new Error ('Not Authorized')
-  //     }
-  //   })
-  //   .catch(err => {
-  //     console.log(err)
-  //     res.redirect(`/recipes/`)
-  //   })
+  req.body.author = req.user.profile._id
+  Recipe.findById(req.params.id)
+    .then(recipe => {
+      recipe.comments.push(req.body)
+      recipe.save(err => {
+        res.redirect(`/recipes/${recipe._id}`)  
+      })
+
+      // if (recipe.author.equals(req.user.profile._id)) {
+      //   recipe.updateOne(req.body.comments, {new: true}) //<---
+      //   .then(() => {
+      //     console.log(recipe.comments)
+      //     res.redirect(`/recipes/${recipe._id}`)
+      //   })
+      // } else {
+      //   throw new Error ('Not Authorized')
+      // }
+
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect(`/recipes/`)
+    })
 }
 
 export {

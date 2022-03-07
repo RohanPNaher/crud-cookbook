@@ -47,6 +47,14 @@
       <button type="submit">Add Comment</button>
     </form>
   <% } %>
+  <% recipe.comments.forEach(comment => { %>
+    <div>
+      <h3><%= comment.author.name %></h3>
+      <h4><%= comment.createdAt.toLocaleDateString() %></h4>
+      <p><%= comment.rating %></p>
+      <p><%= comment.content %></p>
+    </div>
+  <% }) %>
 </main>
 
 <%- include('../partials/footer') %>
