@@ -9,6 +9,8 @@ router.get('/', recipeCtrl.index)
 router.get('/new', isLoggedIn, recipeCtrl.new)
 // GET - localhost:3000/recipes/:id
 router.get('/:id', recipeCtrl.show)
+// GET - localhost:3000/recipes/:id/edit
+router.get('/:id/edit', isLoggedIn, recipeCtrl.edit)
 
 // POST - localhost:3000/recipes
 router.post('/', isLoggedIn, recipeCtrl.create)

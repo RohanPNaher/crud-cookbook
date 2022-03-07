@@ -5,6 +5,7 @@
   <h1>All Recipes</h1>
 
   <% recipes.forEach(recipe => { %>
+    <% recipe.populate('author') %> 
     <div class="card" style="width: 18rem;">
       <img class="card-img-top" src="<%= recipe.imageUrl %>" alt="<%= recipe.name %> Image">
       <div class="card-body">
@@ -14,14 +15,6 @@
       </div>
     </div>
   <% }) %>
-
-<!-- 
-
-  <ul>
-    <% recipes.forEach(recipe => { %>
-      <li><a href=""><%= recipe.name %></a> by <%= recipe.author %></li>
-    <% }) %>
-  </ul> -->
 </main>
 
 <%- include('../partials/footer') %>

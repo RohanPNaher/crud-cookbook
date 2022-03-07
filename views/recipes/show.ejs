@@ -22,6 +22,11 @@
       <% }) %>
     </ul>
   </div>
+  <% if (recipe.author.equals(user?.profile._id)) { %>
+    <form action="/recipes/<%= recipe.id %>/edit" method="GET">
+      <button type="submit">Edit this recipe</button>
+    </form>
+  <% } %>
 </main>
 
 <%- include('../partials/footer') %>
