@@ -14,6 +14,7 @@ router.get('/:id/edit', isLoggedIn, recipeCtrl.edit)
 
 // POST - localhost:3000/recipes
 router.post('/', isLoggedIn, recipeCtrl.create)
+router.post('/:id/comments', isLoggedIn, recipeCtrl.createComment)
 
 // PUT - localhost:3000/recipes/:id
 router.put('/:id', isLoggedIn, recipeCtrl.update)

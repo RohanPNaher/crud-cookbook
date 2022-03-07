@@ -2,6 +2,7 @@ import { Recipe } from "../models/recipe.js";
 
 function index(req, res) {
   Recipe.find({})
+    .populate('author')
     .then(recipes => {
       res.render('recipes/index', {
         recipes,
@@ -87,20 +88,40 @@ function update(req, res) {
 
 function deleteRecipe(req, res) {
   Recipe.findById(req.params.id)
-  .then(recipe => {
-    if (recipe.author.equals(req.user.profile._id)) {
-      recipe.delete()
-      .then(() => {
-        res.redirect(`/recipes/`)
-      })
-    } else {
-      throw new Error ('Not Authorized')
-    }
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect('/recipes')
-  })
+    .then(recipe => {
+      if (recipe.author.equals(req.user.profile._id)) {
+        recipe.delete()
+        .then(() => {
+          res.redirect(`/recipes/`)
+        })
+      } else {
+        throw new Error ('Not Authorized')
+      }
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/recipes')
+    })
+}
+
+function createComment(req, res) {
+  console.log('howdy')
+  // Recipe.findById(req.params.id)
+  //   .then(recipe => {
+  //     req.body.comments.push(req.body)
+  //     if (recipe.author.equals(req.user.profile._id)) {
+  //       recipe.updateOne(req.body, {new: true})
+  //       .then(() => {
+  //         res.redirect(`/recipes/${recipe._id}`)
+  //       })
+  //     } else {
+  //       throw new Error ('Not Authorized')
+  //     }
+  //   })
+  //   .catch(err => {
+  //     console.log(err)
+  //     res.redirect(`/recipes/`)
+  //   })
 }
 
 export {
@@ -111,4 +132,5 @@ export {
   edit,
   update,
   deleteRecipe as delete,
+  createComment
 }
