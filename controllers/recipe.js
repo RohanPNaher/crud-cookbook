@@ -128,14 +128,11 @@ function createComment(req, res) {
 }
 
 function deleteComment(req, res) {
-  console.log(req.params.commentId)
   Recipe.findById(req.params.id)
   .then(recipe => {
-    console.log('O')
-    // recipe.comments.remove({_id: req.params.commentId})
+    recipe.comments.remove({_id: req.params.commentId})
     recipe.save()
     .then(()=> {
-      console.log('jungle')
       res.redirect(`/recipes/${recipe._id}`)
     })
   })
