@@ -1,4 +1,5 @@
 import { Recipe } from "../models/recipe.js";
+import { Profile } from '../models/profile.js'
 
 function index(req, res) {
   Recipe.find({})
@@ -27,7 +28,11 @@ function create(req, res) {
   req.body.instructions = req.body.instructions.split('\r\n')
   Recipe.create(req.body)
     .then(recipe => {
-      
+      Profile.findById(req.user.profile._id)
+        .then(profile => {
+          profile.recipes.push(recipe._id)
+          profile.save()
+        })
     console.log(req.body)
       res.redirect('/recipes')
     })
@@ -35,6 +40,8 @@ function create(req, res) {
       console.log(err)
       res.redirect('/recipes')
     })
+    // ASSOCIATE A RECIPE WITH PROFILE WHEN BEING MADE
+
 }
 
 function show(req, res) {
@@ -98,6 +105,8 @@ function deleteRecipe(req, res) {
   Recipe.findById(req.params.id)
     .then(recipe => {
       if (recipe.author.equals(req.user.profile._id)) {
+        Profile.findById(recipe.author)
+          .then(())
         recipe.delete()
         .then(() => {
           res.redirect(`/recipes/`)
@@ -110,6 +119,25 @@ function deleteRecipe(req, res) {
       console.log(err)
       res.redirect('/recipes')
     })
+
+
+  //   Recipe.create(req.body)
+  //   .then(recipe => {
+  //   console.log(req.body)
+  //     res.redirect('/recipes')
+  //   })
+  //   .catch(err => {
+  //     console.log(err)
+  //     res.redirect('/recipes')
+  //   })
+  //   // ASSOCIATE A RECIPE WITH PROFILE WHEN BEING MADE
+  // Profile.findById(req.user.profile._id)
+  //   .then(profile => {
+  //     profile.recipes.push(recipe._id)
+  //     profile.save()
+  //   })
+
+
 }
 
 function createComment(req, res) {
