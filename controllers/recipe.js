@@ -23,6 +23,7 @@ function newRecipe(req, res) {
 }
 
 function create(req, res) {
+  console.log(req.body)
   req.body.author = req.user.profile._id
   req.body.ingredients = req.body.ingredients.split(', ')
   req.body.instructions = req.body.instructions.split('\r\n')
@@ -40,7 +41,7 @@ function create(req, res) {
       console.log(err)
       res.redirect('/recipes')
     })
-    // ASSOCIATE A RECIPE WITH PROFILE WHEN BEING MADE
+
 
 }
 
@@ -58,7 +59,7 @@ function show(req, res) {
     .then(recipe => {
       res.render('recipes/show', {
         recipe,
-        title: recipe.name
+        title: 'details'
       })
     })
     .catch(err => {
@@ -105,12 +106,25 @@ function deleteRecipe(req, res) {
   Recipe.findById(req.params.id)
     .then(recipe => {
       if (recipe.author.equals(req.user.profile._id)) {
-        Profile.findById(recipe.author)
-          .then(())
-        recipe.delete()
-        .then(() => {
+        console.log(req.params.id)
+        // console.log('the recipe.author is' + recipe.author)
+        Profile.findById(req.user.profile._id)
+        .then(profile => {
+          profile.recipes.remove(req.params.id)
+          profile.save()
+          recipe.delete()
           res.redirect(`/recipes/`)
         })
+        .catch(err => {
+          console.log(err)
+          res.redirect('/recipes')
+        })
+
+        
+
+        // .then(() => {
+        //   res.redirect(`/recipes/`)
+        // })
       } else {
         throw new Error ('Not Authorized')
       }
@@ -119,25 +133,6 @@ function deleteRecipe(req, res) {
       console.log(err)
       res.redirect('/recipes')
     })
-
-
-  //   Recipe.create(req.body)
-  //   .then(recipe => {
-  //   console.log(req.body)
-  //     res.redirect('/recipes')
-  //   })
-  //   .catch(err => {
-  //     console.log(err)
-  //     res.redirect('/recipes')
-  //   })
-  //   // ASSOCIATE A RECIPE WITH PROFILE WHEN BEING MADE
-  // Profile.findById(req.user.profile._id)
-  //   .then(profile => {
-  //     profile.recipes.push(recipe._id)
-  //     profile.save()
-  //   })
-
-
 }
 
 function createComment(req, res) {

@@ -23,7 +23,10 @@ const recipeSchema = new Schema({
     type: String,
     required: true
   },
-  imageUrl: String,
+  imageUrl: {
+    type: String,
+    default: 'https://i.imgur.com/BDa36Zp.jpeg'
+  },
   description: {
     type: String,
     required: true

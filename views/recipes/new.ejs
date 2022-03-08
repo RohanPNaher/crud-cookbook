@@ -8,7 +8,8 @@
       <input type="text" name="name" autocomplete="off" placeholder="ex. Apple Pie">
     </label><br>
     <label>Image URL:
-      <input type="text" name="imageUrl" autocomplete="off" placeholder="https://i.imgur.com/qWDVGow.jpeg">
+      <input type="url" pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.jpg|.png|.gif|.jpeg)" name="imageUrl" autocomplete="off" placeholder="https://i.imgur.com/qWDVGow.jpeg">
+      <!-- source for regex https://stackoverflow.com/questions/40687546/html-input-require-url-to-end-in-specific-filetype -->
     </label><br>
     <label>Description:
       <textarea name="description" autocomplete="off" placeholder="My nan's apple pie recipe"></textarea>
