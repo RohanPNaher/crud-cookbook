@@ -14,6 +14,29 @@ function index (req, res) {
   })
 }
 
+function show(req, res) {
+  console.log('audio jungle')
+  Profile.findById(req.params.id)
+    .then(profile => {
+      console.log('video jungle')
+      Profile.findById(req.user.profile._id)
+        .then(self => {
+          console.log('radio jungle')
+          const isSelf = self._id.equals(profile._id)
+          res.render('profiles/show', {
+            title: `${profile.name}'s profile`,
+            profile,
+            isSelf,
+          })
+        })
+        .catch(err => {
+          console.log(err)
+          res.redirect(`/`)
+    })
+    })
+}
+
 export {
   index,
+  show,
 }
