@@ -28,12 +28,12 @@
     </form>
   <% } %>
   <% if (recipe.author.equals(user?.profile._id)) { %>
-    <form action="/recipes/<%= recipe.id %>?_method=DELETE" method="POST">
+    <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
       <button type="submit">Delete this recipe</button>
     </form>
   <% } %>
   <% if (user?.profile._id) { %>
-    <form action="/recipes/<%= recipe.id %>/comments" method="POST">
+    <form action="/recipes/<%= recipe._id %>/comments" method="POST">
       <label for="content-textarea">Comments:</label>
       <textarea name="content" id="content-textarea"></textarea>
       <label for="rating-select">Rating:</label>
@@ -53,6 +53,13 @@
       <h4><%= comment.createdAt.toLocaleDateString() %></h4>
       <p><%= comment.rating %></p>
       <p><%= comment.content %></p>
+      <div>
+        <% if (comment.author.equals(user?.profile._id)) { %>
+          <form action="/recipes/<%= recipe._id %>/comments/<%= comment._id %> ?_method=DELETE" method="post">
+            <button type="submit">Delete this comment?</button>
+          </form>
+        <% } %> 
+      </div>
     </div>
   <% }) %>
 </main>

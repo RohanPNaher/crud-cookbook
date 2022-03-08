@@ -49,7 +49,6 @@ function show(req, res) {
       }
     ])
     .then(recipe => {
-      console.log(recipe)
       res.render('recipes/show', {
         recipe,
         title: recipe.name
@@ -121,22 +120,29 @@ function createComment(req, res) {
       recipe.save(err => {
         res.redirect(`/recipes/${recipe._id}`)  
       })
-
-      // if (recipe.author.equals(req.user.profile._id)) {
-      //   recipe.updateOne(req.body.comments, {new: true}) //<---
-      //   .then(() => {
-      //     console.log(recipe.comments)
-      //     res.redirect(`/recipes/${recipe._id}`)
-      //   })
-      // } else {
-      //   throw new Error ('Not Authorized')
-      // }
-
     })
     .catch(err => {
       console.log(err)
       res.redirect(`/recipes/`)
     })
+}
+
+function deleteComment(req, res) {
+  console.log(req.params.commentId)
+  Recipe.findById(req.params.id)
+  .then(recipe => {
+    console.log('O')
+    // recipe.comments.remove({_id: req.params.commentId})
+    recipe.save()
+    .then(()=> {
+      console.log('jungle')
+      res.redirect(`/recipes/${recipe._id}`)
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/recipes/${recipe._id}`)
+  })
 }
 
 export {
@@ -147,5 +153,6 @@ export {
   edit,
   update,
   deleteRecipe as delete,
-  createComment
+  createComment,
+  deleteComment,
 }
