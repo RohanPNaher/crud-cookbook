@@ -29,10 +29,10 @@ function show(req, res) {
             isSelf,
           })
         })
-        .catch(err => {
-          console.log(err)
-          res.redirect(`/`)
     })
+    .catch(err => {
+      console.log(err)
+      res.redirect(`/`)
     })
 }
 
