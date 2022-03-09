@@ -5,20 +5,20 @@
   <h1><%= title %></h1>
   <form action="/recipes" method="POST">
     <label>Recipe Name:
-      <input type="text" name="name" autocomplete="off" autofocus="true" placeholder="ex. Apple Pie">
+      <input type="text" name="name" autocomplete="off" autofocus="true" placeholder="ex. Apple Pie" required>
     </label><br>
     <label>Image URL:
       <input type="url" pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.jpg|.png|.gif|.jpeg)" name="imageUrl" autocomplete="off" placeholder="https://i.imgur.com/qWDVGow.jpeg">
       <!-- source for regex https://stackoverflow.com/questions/40687546/html-input-require-url-to-end-in-specific-filetype -->
     </label><br>
     <label>Description:
-      <textarea name="description" autocomplete="off" placeholder="My nan's apple pie recipe"></textarea>
+      <textarea name="description" autocomplete="off" placeholder="My nan's apple pie recipe" required></textarea>
     </label><br>
     <label>Ingredients:
-      <textarea name="ingredients" autocomplete="off" placeholder="6 Apples, 2 Sticks of Butter, 200 grams of Sugar"></textarea>
+      <textarea name="ingredients" autocomplete="off" placeholder="6 Apples, 2 Sticks of Butter, 200 grams of Sugar" required></textarea>
     </label><br>
     <label>Steps:
-      <textarea name="instructions" autocomplete="off" placeholder='1. Cut apples into spears.'></textarea>
+      <textarea name="instructions" autocomplete="off" placeholder='1. Cut apples into spears.' required></textarea>
     </label><br>
     <button type="submit">Add Recipe</button>
   </form>

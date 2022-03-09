@@ -33,7 +33,7 @@ function create(req, res) {
           profile.recipes.push(recipe._id)
           profile.save()
         })
-      res.redirect(`/recipes/${recipe._id}/edit`)
+      res.redirect(`/recipes/${recipe._id}`)
     })
     .catch(err => {
       console.log(err)
@@ -66,7 +66,9 @@ function show(req, res) {
 
 function edit(req, res) {
   Recipe.findById(req.params.id)
-    .then(recipe => {
+  .then(recipe => {
+      recipe.ingredients = recipe.ingredients.join(', ')
+      recipe.instructions = recipe.instructions.join('\r\n')
       res.render('recipes/edit', {
         recipe,
         title: `Edit ${recipe.name}`
@@ -102,8 +104,6 @@ function deleteRecipe(req, res) {
   Recipe.findById(req.params.id)
     .then(recipe => {
       if (recipe.author.equals(req.user.profile._id)) {
-        console.log(req.params.id)
-        // console.log('the recipe.author is' + recipe.author)
         Profile.findById(req.user.profile._id)
         .then(profile => {
           profile.recipes.remove(req.params.id)
