@@ -17,16 +17,27 @@ function index (req, res) {
 function show(req, res) {
   console.log('audio jungle')
   Profile.findById(req.params.id)
+    .populate([
+      'recipes',
+      {
+        path: 'recipes',
+        populate: {
+          path: 'author'
+        }
+      }
+    ])
     .then(profile => {
       console.log('video jungle')
       Profile.findById(req.user.profile._id)
         .then(self => {
           console.log('radio jungle')
           const isSelf = self._id.equals(profile._id)
+          const recipes = profile.recipes
           res.render('profiles/show', {
             title: `${profile.name}'s profile`,
             profile,
             isSelf,
+            recipes
           })
         })
     })

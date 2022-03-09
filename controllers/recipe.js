@@ -23,7 +23,6 @@ function newRecipe(req, res) {
 }
 
 function create(req, res) {
-  console.log(req.body)
   req.body.author = req.user.profile._id
   req.body.ingredients = req.body.ingredients.split(', ')
   req.body.instructions = req.body.instructions.split('\r\n')
@@ -34,15 +33,12 @@ function create(req, res) {
           profile.recipes.push(recipe._id)
           profile.save()
         })
-    console.log(req.body)
-      res.redirect('/recipes')
+      res.redirect(`/recipes/${recipe._id}/edit`)
     })
     .catch(err => {
       console.log(err)
       res.redirect('/recipes')
     })
-
-
 }
 
 function show(req, res) {
@@ -59,7 +55,7 @@ function show(req, res) {
     .then(recipe => {
       res.render('recipes/show', {
         recipe,
-        title: 'details'
+        title: recipe.name
       })
     })
     .catch(err => {
