@@ -8,13 +8,11 @@
       <input type="text" name="name" autocomplete="off" value="<%= recipe.name %>">
     </label><br>
     <label>Image URL:
-      <input type="text" name="imageUrl" autocomplete="off" value="<%= recipe.imageUrl %>">
+      <input type="url" pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.jpg|.png|.gif|.jpeg)"  name="imageUrl" autocomplete="off" value="<%= recipe.imageUrl %>">
     </label><br>
 
-    <label>Previous Description:</label><br>
-    <div><%= recipe.description %></div>
-    <label>New Description:
-      <textarea name="description" autocomplete="off"></textarea>
+    <label>Edit Description:
+      <textarea name="description" autocomplete="off"><%= recipe.description %></textarea>
     </label><br>
 
     <label>Previous Ingredients:</label>
