@@ -2,11 +2,13 @@
 <%- include('../partials/nav') %>
 
 <main id="show-main">
-  <h1><%= recipe.name %></h1>
-  <h2>By <%= recipe.author.name %></h2>
+  <div class="show-starter">
+    <h1><%= recipe.name %></h1>
+    <h2>By <%= recipe.author.name %></h2>
+  </div>
   <img src="<%= recipe.imageUrl %>" alt="<%= recipe.name %> image">
-  <h2><%= recipe.description %></h2>
-  <div>
+  <h2 class="show-desc"><%= recipe.description %></h2>
+  <div class="show-ingredients">
     <h3>Ingredients: </h3>
     <ul>
       <% recipe.ingredients.forEach(ingredient => { %>
@@ -14,7 +16,7 @@
       <% }) %>
     </ul>
   </div>
-  <div>
+  <div class="show-steps">
     <h3>Steps: </h3>
     <ul>
       <% recipe.instructions.forEach(instruction => { %>

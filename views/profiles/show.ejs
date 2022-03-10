@@ -39,16 +39,16 @@
                 </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h2 class="card-title"><%= recipe.name %></h2>
+                  <h1 class="card-title"><%= recipe.name %></h1>
 
                   <% if (recipe.description.length > 300) { %>
                     <% let splitDesc = recipe.description.split(' ') %>
                     <% let editDesc = splitDesc.slice(0, 75).join(' ') %> 
-                    <p class="card-text"><%= editDesc %> . . .</p>
+                    <h3 class="card-text"><%= editDesc %> . . .</h3>
                   <% } else { %>
-                    <p class="card-text"><%= recipe.description %></p>
+                    <h3 class="card-text"><%= recipe.description %></h3>
                   <% } %>
-                  <a class="card-text" href="/recipes/<%= recipe._id %>" class="btn btn-primary">View Recipe</a>
+                  <a class="card-text btn btn-primary" href="/recipes/<%= recipe._id %>">View Recipe</a>
                 </div>
               </div>
             </div>
