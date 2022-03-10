@@ -25,20 +25,18 @@
       <% recipes.forEach(recipe => { %>
         <div class="col">
           <a class="text-decoration-none" href="/recipes/<%= recipe._id %>">
-            <div class="card mb-4 shadow-lg">
+            <div class="card m-4 shadow-lg">
               <% if (recipe.imageUrl) { %>
                 <img 
                 class="card-img-top" 
                 src="<%= recipe.imageUrl %>" 
                 alt="<%= recipe.name %> Image"
-                width="100%"
                 >
               <% } else {%>
                 <img
                   class="card-img-top"
                   src="https://i.imgur.com/F7q0fQO.jpeg"
                   alt="A placeholder image"
-                  width="100%"
                 />
               <% } %>
               <div class="card-body">

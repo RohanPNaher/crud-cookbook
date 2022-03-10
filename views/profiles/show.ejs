@@ -18,13 +18,13 @@
       <% recipes.forEach(recipe => { %>
       <div class="row p-4">
         <div class="col">
-          <div class="card mb-3" style="max-width: 100%;">
+          <div class="card mb-3 shadow-lg" style="max-width: 100%;">
             <div class="row g-0">
               <div class="col-md-4">
                 <a class="text-decoration-none" href="/recipes/<%= recipe._id %>">
                   <% if (recipe.imageUrl) { %>
                     <img 
-                    class="img-fluid rounded-start"
+                    class="img-fluid rounded-start profile-show"
                     src="<%= recipe.imageUrl %>" 
                     alt="<%= recipe.name %> Image"
                     />
