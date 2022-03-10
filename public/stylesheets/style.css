@@ -145,3 +145,12 @@ nav > a {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+#show-main > img{
+  max-width: 600px;
+  max-height: 600px;
+}
+
+a > img {
+  max-height: 350px;
+}
