@@ -23,10 +23,10 @@ Mobile:
 <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white">
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black">
 <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=flat&logo=bootstrap&logoColor=white">
-<img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white">
-<img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge">
-<img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white">
-<img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white">
+<img src="https://img.shields.io/badge/MongoDB-4EA94B?style=flat&logo=mongodb&logoColor=white">
+<img src="https://img.shields.io/badge/Express.js-404D59?style=flat">
+<img src="https://img.shields.io/badge/Node.js-43853D?style=flat&logo=node.js&logoColor=white">
+<img src="https://img.shields.io/badge/Heroku-430098?style=flat&logo=heroku&logoColor=white">
 
 # 👩‍🍳 Credits 👨‍🍳
 * General Assembly's Template Code

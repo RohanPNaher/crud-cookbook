@@ -1,27 +1,44 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<main>
-  <h1><%= title %></h1>
-  <form action="/recipes" method="POST">
-    <label>Recipe Name:
-      <input type="text" name="name" autocomplete="off" autofocus="true" placeholder="ex. Apple Pie" required>
-    </label><br>
-    <label>Image URL:
-      <input type="url" pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.jpg|.png|.gif|.jpeg)" name="imageUrl" autocomplete="off" placeholder="https://i.imgur.com/qWDVGow.jpeg">
-      <!-- source for regex https://stackoverflow.com/questions/40687546/html-input-require-url-to-end-in-specific-filetype -->
-    </label><br>
-    <label>Description:
-      <textarea name="description" autocomplete="off" placeholder="My nan's apple pie recipe" required></textarea>
-    </label><br>
-    <label>Ingredients:
-      <textarea name="ingredients" autocomplete="off" placeholder="6 Apples, 2 Sticks of Butter, 200 grams of Sugar" required></textarea>
-    </label><br>
-    <label>Steps:
-      <textarea name="instructions" autocomplete="off" placeholder='1. Cut apples into spears.' required></textarea>
-    </label><br>
-    <button type="submit">Add Recipe</button>
-  </form>
+<main class="new-edit-main">
+  <div class="new-edit-container">
+    <h1><%= title %></h1>
+    <form class="recipe-form" action="/recipes" method="POST">
+      <label>Recipe Name:
+        <input type="text" name="name" autocomplete="off" autofocus="true" placeholder="ex. Apple Pie" required>
+      </label><br>
+      <label>Image URL:
+        <input type="url" pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.jpg|.png|.gif|.jpeg)" name="imageUrl" autocomplete="off" placeholder="https://i.imgur.com/qWDVGow.jpeg">
+        <!-- source for regex https://stackoverflow.com/questions/40687546/html-input-require-url-to-end-in-specific-filetype -->
+      </label><br>
+      <label>Description:<br>
+        <textarea 
+          name="description" 
+          autocomplete="off" 
+          placeholder="My nan's apple pie recipe" 
+          cols="50" rows="10" 
+          required></textarea>
+      </label><br>
+      <label>Ingredients (seperated by commas):<br>
+        <textarea 
+          name="ingredients" 
+          autocomplete="off" 
+          placeholder="8 Apples, ½ cup unsalted butter, 3 tablespoons all-purpose flour, ¼ cup water , ½ cup white sugar, ½ cup packed brown sugar, pre-made pie dough" 
+          cols="50" rows="10" 
+          required></textarea>
+      </label><br>
+      <label>Steps:<br>
+        <textarea 
+          name="instructions" 
+          autocomplete="off" 
+          placeholder='1. Preheat oven to 425 degrees F (220 degrees C). Melt the butter in a saucepan. Stir in flour to form a paste. Add water, white sugar and brown sugar, and bring to a boil. Reduce temperature and let simmer.&#10;&#10;2. Place the bottom crust in your pan. Fill with apples, mounded slightly. Cover with a lattice work crust. Gently pour the sugar and butter liquid over the crust. Pour slowly so that it does not run off.&#10;&#10;3. Bake 15 minutes in the preheated oven. Reduce the temperature to 350 degrees F (175 degrees C). Continue baking for 35 to 45 minutes, until apples are soft.' 
+          cols="50" rows="10" 
+          required></textarea>
+      </label><br>
+      <button type="submit">Add Recipe</button>
+    </form>
+  </div>
 </main>
 
 <%- include('../partials/footer') %>

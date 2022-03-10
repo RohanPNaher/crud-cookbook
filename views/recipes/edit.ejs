@@ -2,29 +2,43 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1><%= title %></h1>
-  <form action="/recipes/<%= recipe._id %>?_method=PUT" method="POST">
-    <label>Recipe Name:
-      <input type="text" name="name" autocomplete="off" value="<%= recipe.name %>" required>
-    </label><br>
-    <label>Image URL:
-      <input type="url" pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.jpg|.png|.gif|.jpeg)"  name="imageUrl" autocomplete="off" value="<%= recipe.imageUrl %>">
-    </label><br>
-
-    <label>Edit Description:
-      <textarea name="description" autocomplete="off" required><%= recipe.description %></textarea>
-    </label><br>
-
-    <label>Edit Ingredients:
-      <textarea name="ingredients" autocomplete="off" required><%= recipe.ingredients %></textarea>
-    </label><br>
-
-    <label>Edit Steps:
-      <textarea name="instructions" autocomplete="off" required><%= recipe.instructions %></textarea>
-    </label><br>
-
-    <button type="submit">Submit Edit</button>
-  </form>
+  <div class="new-edit-container">
+    <h1><%= title %></h1>
+    <form class="recipe-form" action="/recipes/<%= recipe._id %>?_method=PUT" method="POST">
+      <label>Recipe Name:
+        <input type="text" name="name" autocomplete="off" value="<%= recipe.name %>" required>
+      </label><br>
+      <label>Image URL:
+        <input type="url" pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.jpg|.png|.gif|.jpeg)"  name="imageUrl" autocomplete="off" value="<%= recipe.imageUrl %>">
+      </label><br>
+  
+      <label>Edit Description:<br>
+        <textarea 
+          name="description" 
+          autocomplete="off" 
+          cols="50" rows="10" 
+          required><%= recipe.description %></textarea>
+      </label><br>
+  
+      <label>Edit Ingredients:<br>
+        <textarea 
+          name="ingredients" 
+          autocomplete="off" 
+          cols="50" rows="10" 
+          required><%= recipe.ingredients %></textarea>
+      </label><br>
+  
+      <label>Edit Steps:<br>
+        <textarea 
+          name="instructions" 
+          autocomplete="off" 
+          cols="50" rows="10" 
+          required><%= recipe.instructions %></textarea>
+      </label><br>
+  
+      <button type="submit">Submit Edit</button>
+    </form>
+  </div>
 </main>
 
 <%- include('../partials/footer') %>
