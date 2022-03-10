@@ -71,7 +71,7 @@ function edit(req, res) {
       recipe.instructions = recipe.instructions.join('\r\n')
       res.render('recipes/edit', {
         recipe,
-        title: `Edit ${recipe.name}`
+        title: `Edit ${recipe.name} Recipe`
       })
     })
     .catch(err => {
