@@ -13,15 +13,15 @@ ERD:
 Initial idea for relationships in data including favorites schema that was pushed to icebox.
 
 Landing:
-![Landing](https://imgur.com/5Ak6BEa)
+![Landing](https://i.imgur.com/5Ak6BEa.png)
 You are immediately loaded into the all recipes page upon going to the site.
 
 New:
-![New Recipes!](https://imgur.com/AhRS9hx)
+![New Recipes!](https://i.imgur.com/AhRS9hx.png)
 The add recipe page shows you a placeholder template for how to add each input.
 
 Mobile:
-![Mobile Responsive](https://imgur.com/AlFE1sN)
+![Mobile Responsive](https://i.imgur.com/AlFE1sN.png)
 
 
 # 🍽 Technologies Used 🔥
@@ -44,7 +44,8 @@ Mobile:
 
 
 # 🦐 Next Steps: 🍤
-* Add the ability for users to favorite images.
+* Add the ability for users to favorite recipes.
 * Change how ingredients and steps are added to be more intuitive.
 * Add Dark mode for easy viewing.
 * Add the ability to edit or delete recipes from your own cards.
+* Add overall star rating to cards.
