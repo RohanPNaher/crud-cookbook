@@ -63,7 +63,13 @@
       >
         <h3><%= comment.author.name %></h3>
         <h4><%= comment.createdAt.toLocaleDateString() %></h4>
-        <h4><%= comment.rating %></h4>
+        <h4>
+          <% let stars = [] %> 
+          <% for( let index = 0; index < comment.rating; index++ ) { %>
+            <% stars.push('⭐') %> 
+          <% } %>
+          <%= stars.join('') %>
+        </h4>
         <p><%= comment.content %></p>
         <div>
           <% if (comment.author.equals(user?.profile._id)) { %>

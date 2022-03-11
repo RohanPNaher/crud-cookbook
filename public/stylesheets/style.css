@@ -138,11 +138,13 @@ textarea {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border-radius: 25px;
 }
 
 .show-desc {
   grid-area: desc;
   padding: 15px;
+  text-align: center;
 }
 
 .show-ingredients {
@@ -234,7 +236,7 @@ pre {
 .recipe-form {
   display: grid;
   grid-template-columns: auto;
-  width: 1000px;
+  width: 90%;
   grid-gap: 1.6rem;
   margin-bottom: 2rem
 }
@@ -267,8 +269,8 @@ pre {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 30px;
-  background-color: #fff3f3;
+  padding: 5px;
+  background-color: #dbccd1;
   border-radius: 25px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -290,52 +292,14 @@ pre {
 
   .nav-links > a {
     margin: 1rem 3rem;
-    text-decoration: none;
-    font-size: 2.0rem;
-    align-items: center;
-    justify-content: center;
+    font-size: 2.4rem;
   }
 
   .recipe-form {
-    display: grid;
-    grid-template-columns: auto;
-    width: 1000px;
-    grid-gap: 1.6rem;
-    margin-bottom: 2rem
-  }
-  
-  .recipe-form * {
-    padding: 5px;
-    border-radius: 5px;
-    font-size: 2rem;
-  }
-  
-  .recipe-form > button {
-    font-size: 1.6rem;
-    width: 16rem;
-    margin-bottom: 2.4rem;
-  }
-  
-  .recipe-form > input {
-    width: 100%;
-  }
-  
-  .new-edit-main {
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-areas:
-      "main";
+    width: 1400px;
   }
   
   .new-edit-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
     padding: 30px;
-    background-color: #fff3f3;
-    border-radius: 25px;
-    margin-top: 20px;
-    margin-bottom: 20px;
   }
 }
