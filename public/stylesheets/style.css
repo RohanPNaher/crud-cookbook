@@ -77,9 +77,14 @@ main {
   flex-direction: column;
 }
 
+textarea {
+  width: 100%;
+  font-size: 1.8rem;
+}
+
 #show-main {
   display: grid;
-  grid-template-columns: 1fr 90% 1fr;
+  grid-template-columns: 1fr 85% 1fr;
   grid-template-rows: auto;
   grid-template-areas: ". main .";
   width: 100%;
@@ -100,42 +105,70 @@ main {
   "ingredients"
   "steps"
   "change"
-  "form"
-  "comments";
+  "form";
+  background-color: #fff3f3;
+  border-radius: 25px;
+  padding: 20px;
 }
 
 .show-starter {
   grid-area: starter;
+  text-align: center;
 }
 
 .show-img{
   grid-area: image;
   max-width: 100%;
   max-height: 600px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .show-desc {
   grid-area: desc;
+  padding: 15px;
 }
 
 .show-ingredients {
   grid-area: ingredients;
+  padding: 15px;
+}
+
+.show-ingredients > ul > li {
+  padding: 5px 0;
 }
 
 .show-steps {
   grid-area: steps;
+  padding: 15px;
+}
+
+.show-steps > ul > li {
+  padding: 5px 0;
 }
 
 .show-change {
   grid-area: change;
+  display: flex;
+}
+
+.show-change > form {
+  padding: 0 20px;
 }
 
 .show-form {
+  padding: 15px;
   grid-area: form;
 }
 
+.show-form > textarea {
+  width: 70%
+}
+
 .show-comments {
-  grid-area: comments;
+  padding: 15px;
 }
 
 h1 {
@@ -173,13 +206,6 @@ a {
 pre {
   font-size: 1.4rem;
 }
-
-
-
-textarea {
-  width: 100%;
-}
-
 
 .link {
   padding: 1rem 0;
@@ -233,7 +259,6 @@ textarea {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-
 
 .profile-show {
   max-height: 350px;

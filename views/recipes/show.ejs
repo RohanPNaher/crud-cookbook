@@ -28,19 +28,19 @@
     <div class="show-change">
       <% if (recipe.author.equals(user?.profile._id)) { %>
         <form action="/recipes/<%= recipe.id %>/edit" method="GET">
-          <button type="submit">Edit this recipe</button>
+          <button class="btn btn-warning" type="submit">Edit this recipe</button>
         </form>
       <% } %>
       <% if (recipe.author.equals(user?.profile._id)) { %>
         <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
-          <button type="submit">Delete this recipe</button>
+          <button class="btn btn-danger" type="submit">Delete this recipe</button>
         </form>
       <% } %>
     </div>
     <% if (user?.profile._id) { %>
       <form class="show-form" action="/recipes/<%= recipe._id %>/comments" method="POST">
-        <label for="content-textarea">Comments:</label>
-        <textarea name="content" id="content-textarea"></textarea>
+        <label for="content-textarea">Comments:</label><br>
+        <textarea name="content" id="content-textarea"></textarea><br>
         <label for="rating-select">Rating:</label>
         <select name="rating" id="rating-select">
           <option value="1">1</option>
@@ -49,19 +49,19 @@
           <option value="4">4</option>
           <option value="5" selected>5</option>
         </select>
-        <button type="submit">Add Comment</button>
+        <button class="btn btn-primary" type="submit">Add Comment</button>
       </form>
     <% } %>
     <% recipe.comments.forEach(comment => { %>
       <div class="show-comments">
         <h3><%= comment.author.name %></h3>
         <h4><%= comment.createdAt.toLocaleDateString() %></h4>
-        <p><%= comment.rating %></p>
+        <h4><%= comment.rating %></h4>
         <p><%= comment.content %></p>
         <div>
           <% if (comment.author.equals(user?.profile._id)) { %>
             <form action="/recipes/<%= recipe._id %>/comments/<%= comment._id %>?_method=DELETE" method="post">
-              <button type="submit">Delete this comment?</button>
+              <button class="btn btn-danger" type="submit">Delete this comment?</button>
             </form>
           <% } %> 
         </div>
