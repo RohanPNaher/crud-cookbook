@@ -52,8 +52,15 @@
         <button class="btn btn-primary" type="submit">Add Comment</button>
       </form>
     <% } %>
+    <% let alternate = true %> 
     <% recipe.comments.forEach(comment => { %>
-      <div class="show-comments">
+      <div 
+      class=
+      "
+        show-comments
+        <%= alternate ? "alter-bg" : "" %> 
+      "
+      >
         <h3><%= comment.author.name %></h3>
         <h4><%= comment.createdAt.toLocaleDateString() %></h4>
         <h4><%= comment.rating %></h4>
@@ -66,6 +73,7 @@
           <% } %> 
         </div>
       </div>
+      <% alternate = !alternate %> 
     <% }) %>
   </div>
 </main>
