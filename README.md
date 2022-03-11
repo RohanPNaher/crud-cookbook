@@ -1,5 +1,5 @@
 # 🍗 CRUD Cookbook 🍱
-Anything but cruddy, CRUD Cookbook is a social app that allows users to post their favorite recipes and view the favorite recipes of others. It uses the MEN stack to seemlessly showcase your recipes.
+Anything but cruddy, CRUD Cookbook is a social app that allows users to post their favorite recipes and view the favorite recipes of others. It uses the MEN stack to seemlessly showcase your recipes. As per its namesake, CRUD Cookbook features full CRUD capablities across the app in recipe creation and also comment interactions.
 
 [Post your favorite recipes here!](https://crud-cookbook.herokuapp.com/)
 
@@ -13,10 +13,16 @@ ERD:
 Initial idea for relationships in data including favorites schema that was pushed to icebox.
 
 Landing:
+![Landing](https://imgur.com/5Ak6BEa)
+You are immediately loaded into the all recipes page upon going to the site.
 
 New:
+![New Recipes!](https://imgur.com/AhRS9hx)
+The add recipe page shows you a placeholder template for how to add each input.
 
 Mobile:
+![Mobile Responsive](https://imgur.com/AlFE1sN)
+
 
 # 🍽 Technologies Used 🔥
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white">
@@ -41,3 +47,4 @@ Mobile:
 * Add the ability for users to favorite images.
 * Change how ingredients and steps are added to be more intuitive.
 * Add Dark mode for easy viewing.
+* Add the ability to edit or delete recipes from your own cards.

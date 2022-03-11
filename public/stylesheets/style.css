@@ -60,7 +60,6 @@ nav {
 }
 
 .login-button {
-  width: 251px;
   height: 71px;
 }
 
@@ -75,7 +74,6 @@ nav {
 .login-button > a > button {
   justify-self: center;
   align-self: center;
-  width: 191px;
   height: 46px;
 }
 
@@ -132,8 +130,8 @@ textarea {
 
 .show-img{
   grid-area: image;
-  max-width: 400px;
-  max-height: 400px;
+  max-width: 360px;
+  max-height: 360px;
   position: relative;
   top: 50%;
   left: 50%;
@@ -145,24 +143,29 @@ textarea {
   grid-area: desc;
   padding: 15px;
   text-align: center;
+  font-size: 1.8rem;
 }
 
 .show-ingredients {
   grid-area: ingredients;
   padding: 15px;
+  font-size: 1.8rem;
 }
 
 .show-ingredients > ul > li {
   padding: 5px 0;
+  font-size: 1.6rem;
 }
 
 .show-steps {
   grid-area: steps;
   padding: 15px;
+  font-size: 1.8rem;
 }
 
 .show-steps > ul > li {
   padding: 5px 0;
+  font-size: 1.6rem;
 }
 
 .show-change {
@@ -285,9 +288,37 @@ pre {
 }
 
 @media only screen and (min-width: 1024px) {
+  .login-button {
+    width: 251px;
+  }
+  
+  .login-button > a > button {
+    width: 191px;
+  }
+
   #show-main > img{
     max-width: 600px;
     max-height: 600px;
+  }
+
+  .show-desc {
+    font-size: 3rem;
+  }
+  
+  .show-ingredients {
+    font-size: 2.4rem;
+  }
+  
+  .show-ingredients > ul > li {
+    font-size: 1.8rem;
+  }
+  
+  .show-steps {
+    font-size: 2.4rem;
+  }
+  
+  .show-steps > ul > li {
+    font-size: 1.8rem;
   }
 
   .nav-links > a {
