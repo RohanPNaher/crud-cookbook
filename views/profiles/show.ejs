@@ -11,8 +11,11 @@
       >
     </div>
   <% } %>
-  <h1><%= isSelf ? 'Your' : profile.name + "'s" %> Recipes!</h1>
-  
+  <% if (recipes.length) { %>
+    <h1><%= isSelf ? "Your" : profile.name + "'s" %> Recipes!</h1>
+  <% } else { %>
+    <h1><%= isSelf ? "You haven't" : profile.name + " hasn't" %> posted any recipes yet!</h1>
+  <% } %> 
   <div>
     <div class="container p-10">
       <% recipes.forEach(recipe => { %>
