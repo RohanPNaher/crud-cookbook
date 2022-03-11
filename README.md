@@ -20,8 +20,9 @@ New:
 ![New Recipes!](https://i.imgur.com/AhRS9hx.png)
 The add recipe page shows you a placeholder template for how to add each input.
 
-Mobile:
+Mobile:<br>
 ![Mobile Responsive](https://i.imgur.com/AlFE1sN.png)
+Layout switches at 1024px breakpoint.
 
 
 # 🍽 Technologies Used 🔥
@@ -49,3 +50,4 @@ Mobile:
 * Add Dark mode for easy viewing.
 * Add the ability to edit or delete recipes from your own cards.
 * Add overall star rating to cards.
+* Add collapsible NAV to mobile layout.
