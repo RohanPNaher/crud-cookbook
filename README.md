@@ -21,7 +21,7 @@ New:
 The add recipe page shows you a placeholder template for how to add each input.
 
 Mobile:<br>
-![Mobile Responsive](https://i.imgur.com/AlFE1sN.png)
+![Mobile Responsive](https://i.imgur.com/AlFE1sN.png)<br>
 Layout switches at 1024px breakpoint.
 
 
@@ -39,7 +39,7 @@ Layout switches at 1024px breakpoint.
 <img src="https://img.shields.io/badge/Mongoose-880000?style=flat">
 
 # 👩‍🍳 Credits 👨‍🍳
-* General Assembly's Template Code
+* General Assembly's Template OAuth Code
 * Regex code from [Stack Overflow](https://stackoverflow.com/questions/40687546/html-input-require-url-to-end-in-specific-filetype)
 * Background Texture from [Steve Schoger of Hero Patterns](https://heropatterns.com/)
 
